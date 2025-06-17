@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model recordings {
+  id         Int       @id @default(autoincrement())
+  filename   String?   @db.VarChar(255)
+  duration   Float?    @db.Float
+  created_at DateTime? @default(now()) @db.DateTime(0)
+}
