@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { useState, useRef, useEffect } from "react"
 import { formatTime } from "@/lib/utils"
-import type { Recording } from "../components/recording-list"
+import type { Recording } from "../components/mainComponents/recording-list"
 
 export function useAudioRecorder() {
   const [recordings, setRecordings] = useState<Recording[]>([
@@ -98,29 +99,7 @@ export function useAudioRecorder() {
     }
   }
 
-  // Calculate volume level from audio data
-  const calculateVolumeLevel = (dataArray: Float32Array): number => {
-    // Calculate RMS (Root Mean Square) of the audio data
-    let sum = 0
-    const length = dataArray.length
 
-    for (let i = 0; i < length; i++) {
-      sum += dataArray[i] * dataArray[i]
-    }
-
-    const rms = Math.sqrt(sum / length)
-
-    // Convert to decibels and normalize to 0-1 range
-    // Using a more sensitive scale for better visualization
-    const db = 20 * Math.log10(Math.max(rms, 0.00001))
-
-    // Map from -60dB to 0dB to 0-1 range with a more sensitive curve
-    // This gives better visual feedback for typical speech levels
-    const normalized = Math.pow(Math.max(0, Math.min(1, (db + 60) / 60)), 0.6)
-
-    // Apply some smoothing to avoid jumpy visualization
-    return normalized
-  }
 
   const startRecording = async () => {
     try {

@@ -1,8 +1,8 @@
 "use client"
 
 import { formatTime } from "@/lib/utils"
-import { Button } from "./ui-base"
-import { MicIcon, PauseIcon, PlayIcon, SquareIcon, InfoIcon } from "./icons"
+import { Button } from "../ui-base"
+import { MicIcon, PauseIcon, PlayIcon, SquareIcon, InfoIcon } from "../icons"
 
 interface AudioControlsProps {
   isRecording: boolean

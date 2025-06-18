@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Button, DropdownMenu, DropdownMenuItem } from "./ui-base"
-import { PauseIcon, PlayIcon, DownloadIcon, MoreHorizontalIcon } from "./icons"
+import { Button, DropdownMenu, DropdownMenuItem } from "../ui-base"
+import { PauseIcon, PlayIcon, DownloadIcon, MoreHorizontalIcon } from "../icons"
 
 export interface Recording {
   id: number

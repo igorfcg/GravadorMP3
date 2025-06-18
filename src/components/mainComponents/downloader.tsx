@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-export default function Gravador() {
+export default function Downloader() {
   const [filename, setFilename] = useState('')
   const [duration, setDuration] = useState(0)
 

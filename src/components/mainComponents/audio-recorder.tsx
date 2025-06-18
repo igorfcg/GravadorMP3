@@ -1,9 +1,12 @@
 "use client"
+import Link from 'next/link'
+
+
 
 import { useState } from "react"
-import { Button, Input, ToastAction, useToast } from "./ui-base"
-import { SearchIcon, PlusIcon, InfoIcon } from "./icons"
-import AudioWaveform from "./audio-waveform"
+import { Button, Input, ToastAction, useToast } from "../ui-base"
+import { SearchIcon, PlusIcon, InfoIcon } from "../icons"
+import Downloader from "./downloader";
 import AudioControls from "./audio-controls"
 import RecordingsList from "./recording-list"
 import { useAudioRecorder } from "@/hooks/use-audio-recorder"
@@ -17,13 +20,11 @@ export default function AudioRecorder() {
     isRecording,
     isPlaying,
     currentTime,
-    audioData,
     startRecording,
     stopRecording,
     playRecording,
     pausePlayback,
     currentRecordingId,
-    volumeLevel,
     maxRecordingTime,
     downloadRecording,
   } = useAudioRecorder()
@@ -74,31 +75,7 @@ export default function AudioRecorder() {
             currentTime={currentTime}
             maxTime={maxRecordingTime}
           />
-          {/* <AudioWaveform currentTime={currentTime} audioData={audioData} isRecording={isRecording} /> */}
-
-          {/* Volume meter with improved visualization */}
-          <div className="mt-4 w-full">
-            <div className="flex justify-between items-center mb-1">
-              <div className="text-xs text-gray-400">Volume Level</div>
-              <div className="text-xs font-mono">{Math.round(volumeLevel * 100)}%</div>
-            </div>
-            <div className="h-3 bg-gray-800 rounded-full overflow-hidden border border-gray-700">
-              <div
-                className={`h-full transition-all duration-75 ${
-                  volumeLevel > 0.8 ? "bg-red-500" : volumeLevel > 0.5 ? "bg-yellow-500" : "bg-green-500"
-                }`}
-                style={{ width: `${volumeLevel * 100}%` }}
-              ></div>
-            </div>
-
-            {/* Indicadores de volume */}
-            <div className="w-full flex justify-between mt-1">
-              <div className="text-[10px] text-gray-500">-60dB</div>
-              <div className="text-[10px] text-gray-500">-40dB</div>
-              <div className="text-[10px] text-gray-500">-20dB</div>
-              <div className="text-[10px] text-gray-500">0dB</div>
-            </div>
-          </div>
+          <Link href="/login">Ir para Login</Link>
         </div>
 
         {/* Right panel - Recordings list */}
